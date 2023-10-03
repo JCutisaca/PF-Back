@@ -2,8 +2,12 @@ const express = require('express')
 const router = require('./routes/index')
 const morgan = require('morgan')
 const cors = require('cors')
+const createRoles = require("../src/utils/setupsRoles")
 
 const server = express()
+
+// createRoles()
+
 
 server.use(morgan("dev"));
 server.use(express.json());
