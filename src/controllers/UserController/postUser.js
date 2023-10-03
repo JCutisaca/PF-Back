@@ -1,4 +1,4 @@
-const { User } = require('../../db')
+const { User, Cart } = require('../../db')
 const bcrypt = require("bcrypt");
 
 
@@ -6,6 +6,7 @@ const postUser = async ({name, surname, email, phone, password, address, typeUse
     if (!(name || surname || email || password)) throw Error("Faltan datos")
     // Generar un hash de la contraseña
   const hashedPassword = await bcrypt.hash(password, 10);
+  const cart = await Cart.create()
     const [user, created] = await User.findOrCreate({
         where: {
         name: name,
@@ -17,6 +18,9 @@ const postUser = async ({name, surname, email, phone, password, address, typeUse
         address: address? address : null
         }
     })
+
+    await user.setCart(cart)
+
     if(!created) throw Error("Ya existe xd")
     return user;
 }
