@@ -6,7 +6,6 @@ const createRoles = require("../src/utils/setupsRoles")
 
 const server = express()
 
-// createRoles()
 
 
 server.use(morgan("dev"));
