@@ -35,8 +35,6 @@ const isAdmin = async (req, res, next) => {
         .json({ message: "User does not have the required role" });
     }
 
-    // roles es un array de roles que coincide con el tipo de usuario del usuario
-    // Puedes hacer lo que necesites con los roles aquí, por ejemplo, verificar si contiene el rol de "Admin"
     const isAdmin = roles.some((role) => role.name === "Admin");
 
     if (!isAdmin) {
@@ -45,7 +43,6 @@ const isAdmin = async (req, res, next) => {
         .json({ message: "User does not have admin privileges" });
     }
 
-    // Si llegas aquí, el usuario tiene el rol de "Admin" y puedes continuar con el siguiente middleware
     next();
   } catch (error) {
     return res.status(500).json({ error: error.message });

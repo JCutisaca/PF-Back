@@ -26,12 +26,12 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { User, Product, Category } = sequelize.models;
+const { User, Product, Category,Role, Cart } = sequelize.models;
 
 Product.belongsTo(Category);
 Category.hasMany(Product);
 
-//relacion roles users
+//relacion roles-users
 User.belongsToMany(Role, { through: 'UsuariosRoles' });
 Role.belongsToMany(User, { through: 'UsuariosRoles' });
 
