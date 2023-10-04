@@ -3,17 +3,17 @@ const { User , ShoppingCart} = require("../db")
 
 const { addItem } = require("../controllers/CartController/addItem")
 
-const addItemHandler = (req, res) => {
+const addItemHandler = async(req, res) => {
     try {
-        const {idUser, idProduct} = req.params
-        addItem(idUser, idProduct, req.body)
+        const {idUser} = req.params
+        const respuesta = await addItem(idUser, req.body)
         
+        res.status(200).json(respuesta)
         // const {idUser, idProduct } = req.params
 
         // const respuesta = addItem(idUser, idProduct)
         
         
-        // res.status(200).json(respuesta)
     } catch (error) {
         
     }
