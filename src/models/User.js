@@ -40,6 +40,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allownull: true
         },
+        image: {
+        type: DataTypes.STRING,
+        allownull: false,
+        defaultValue:null
+      },
+        
     }, {
         timestamps: false
     })
