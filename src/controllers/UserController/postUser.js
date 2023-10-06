@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = process.env;
 
 
-const postUser = async ({ name, surname, email, phone, password, address, typeUser }) => {
+const postUser = async ({ name, image, surname, email, phone, password, address, typeUser }) => {
 
   if (!(name || surname || email || password)) throw Error("Required data is missing. Please provide name, surname, email, and password.")
 
@@ -18,7 +18,8 @@ const postUser = async ({ name, surname, email, phone, password, address, typeUs
       password: hashedPassword,
       typeUser: typeUser ? typeUser : "User",
       userBan: false,
-      address: address ? address : null
+      address: address ? address : null,
+      image: image ? image : null
     }
   })
   if (!created) throw Error("User with the provided information already exists.")
