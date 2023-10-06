@@ -2,7 +2,7 @@ const { User } = require('../../db');
 const getUserByID = require('./getUserById');
 const bcrypt = require('bcryptjs')
 
-const updateUser = async ({ id, name, surname, email, phone, password, address, typeUser, userBan }) => {
+const updateUser = async ({ id, name, surname, email, phone, password, address, typeUser, userBan, image}) => {
 
     if (!id) throw Error("Please provide a valid ID.")
     if (!(name || surname || email || phone || password || address || typeUser || userBan)) throw Error("Please specify the information you want to update.")
@@ -16,7 +16,8 @@ const updateUser = async ({ id, name, surname, email, phone, password, address, 
         password: password ? await bcrypt.hash(password, 10) : findUser.password,
         address: address ? address : findUser.address,
         userBan: userBan? userBan : findUser.userBan,
-        typeUser: typeUser ? typeUser : "User"
+        typeUser: typeUser ? typeUser : "User",
+        image: image ? image : findUser.image
     },
         { where: { id } }
     )
