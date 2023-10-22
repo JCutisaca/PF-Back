@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { User, PurchaseHistory, Cart } = require('../../db')
+const { User, Cart } = require('../../db')
 const { CLIENT_ID, URL_TOKEN, JWT_SECRET } = process.env
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto');
@@ -33,8 +33,6 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
             image: profileObj.imageUrl ? profileObj.imageUrl : null,
             address: null
         })
-        const purchaseHistory = await PurchaseHistory.create({});
-        await newUser.setPurchaseHistory(purchaseHistory);
         const cartUser = await Cart.create({});
         await newUser.setCart(cartUser);
         const { id } = newUser.dataValues;
