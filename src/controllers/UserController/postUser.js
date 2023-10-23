@@ -22,7 +22,7 @@ const postUser = async ({ name, surname, email, phone, password, address, typeUs
       address: address ? address : null
     }
   })
-  if (created){mailUserCreated(email)}
+  // if (created){mailUserCreated(email)}
   if (!created) throw Error("User with the provided information already exists.")
   const cartUser = await Cart.create({});
   await user.setCart(cartUser);
