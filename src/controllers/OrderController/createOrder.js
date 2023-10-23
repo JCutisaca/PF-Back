@@ -21,11 +21,10 @@ const createOrder = async ({ userId, products, mpId, totalAmount, shippingCost, 
         shippingType,
         mercadopagoTransactionId: mpId
     })
-    if (order) {mailOrder(name, email, products, totalAmount)}
+    // if (order) {mailOrder(name, email, products, totalAmount)}
     await findUser.addOrder(order)
     const userOrder = await Order.findOne({ where: { id: order.dataValues.id } })
     const update = await updateStock(products)
-    console.log(update);
     return userOrder;
 }
 

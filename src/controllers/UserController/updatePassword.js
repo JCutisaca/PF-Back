@@ -14,7 +14,7 @@ const updatePassword = async ({email, password}) => {
     }, 
         {where: { email } }
     )
-    mailUpdatedPassword(email)
+    // mailUpdatedPassword(email)
     } else if (!findUser){throw new Error("User not found.")}
 }
 
