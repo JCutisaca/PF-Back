@@ -24,14 +24,14 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
         }
         const hashedPassword = await bcrypt.hash(generateRandomPassword(), 10);
         const newUser = await User.create({
-            name: profileObj.givenName,
-            surname: profileObj.familyName,
+            name: profileObj.give_name,
+            surname: profileObj.family_name,
             email: newEmail,
             phone: null,
             password: hashedPassword,
             typeUser: "User",
             userBan: false,
-            image: profileObj.imageUrl ? profileObj.imageUrl : null,
+            image: profileObj.picture ? profileObj.picture : null,
             address: null
         })
         const cartUser = await Cart.create({});
