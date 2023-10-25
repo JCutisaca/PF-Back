@@ -10,7 +10,7 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
     if (!accessToken) throw Error('Token is required.')
     const { data } = await axios(`${URL_TOKEN}${accessToken}`)
     if (data.aud !== CLIENT_ID) throw Error('Invalid client ID. Please provide a valid client ID.')
-    const newEmail = profileObj.email.toLowerCase()
+    const newEmail = profileObj?.email.toLowerCase()
     const findUser = await User.findOne({ where: { email: newEmail } })
     if (!findUser) {
         const generateRandomPassword = (length = 8) => {
@@ -24,7 +24,7 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
         }
         const hashedPassword = await bcrypt.hash(generateRandomPassword(), 10);
         const newUser = await User.create({
-            name: profileObj.give_name,
+            name: profileObj.given_name,
             surname: profileObj.family_name,
             email: newEmail,
             phone: null,
