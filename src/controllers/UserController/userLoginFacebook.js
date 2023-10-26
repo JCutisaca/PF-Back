@@ -31,7 +31,7 @@ const userLoginFacebook = async ({ profileObj }) => {
             password: hashedPassword,
             typeUser: "User",
             userBan: false,
-            image: profileObj.picture?.data?.url ? profileObj.picture.data.url : null,
+            image: null,
             address: null
         })
         const cartUser = await Cart.create({});
