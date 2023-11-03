@@ -38,7 +38,7 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
         await newUser.setCart(cartUser);
         const { id } = newUser.dataValues;
         const token = jwt.sign({ id }, JWT_SECRET)
-        mailUserCreated(email)
+        mailUserCreated(newEmail)
         return ({ message: `User Created: ${newUser.name}`, token, idUser: id });
     }
     const { id, email } = findUser.dataValues;
