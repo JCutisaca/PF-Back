@@ -4,7 +4,7 @@ const { CLIENT_ID_FACEBOOK, FACEBOOK_PASSWORD_APP, URL_FACEBOOK_TOKEN, JWT_SECRE
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const mailUserCreated = require('../../helpers/mailUserCreated');
+const mailUserCreated = require('../../config/mailUserCreated');
 
 const userLoginFacebook = async ({ profileObj }) => {
     if (!profileObj.accessToken) throw Error('Token is required.')
@@ -38,7 +38,7 @@ const userLoginFacebook = async ({ profileObj }) => {
         await newUser.setCart(cartUser);
         const { id } = newUser.dataValues;
         const token = jwt.sign({ id }, JWT_SECRET)
-        mailUserCreated(newEmail)
+        mailUserCreated(email)
         return ({ message: `User Created: ${newUser.name}`, token, idUser: id });
     }
     const { id, email } = findUser.dataValues;

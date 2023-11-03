@@ -4,7 +4,7 @@ const { CLIENT_ID, URL_TOKEN, JWT_SECRET } = process.env
 const bcrypt = require('bcryptjs')
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const mailUserCreated = require('../../helpers/mailUserCreated');
+const mailUserCreated = require('../../config/mailUserCreated');
 
 const userLoginGoogle = async ({ accessToken, profileObj }) => {
     if (!accessToken) throw Error('Token is required.')
@@ -38,7 +38,7 @@ const userLoginGoogle = async ({ accessToken, profileObj }) => {
         await newUser.setCart(cartUser);
         const { id } = newUser.dataValues;
         const token = jwt.sign({ id }, JWT_SECRET)
-        mailUserCreated(newEmail)
+        mailUserCreated(email)
         return ({ message: `User Created: ${newUser.name}`, token, idUser: id });
     }
     const { id, email } = findUser.dataValues;
