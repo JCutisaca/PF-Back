@@ -7,7 +7,6 @@ const { updatePassword } = require("../controllers/UserController/updatePassword
 const loginUser = require("../controllers/UserController/loginUser");
 const getUserByID = require("../controllers/UserController/getUserById");
 const userLoginGoogle = require("../controllers/UserController/userLoginGoogle");
-const mailRecoverPassword = require("../helpers/mailRecoverPassword");
 const userLoginFacebook = require("../controllers/UserController/userLoginFacebook");
 
 const postUserHandler = async (req, res) => {
