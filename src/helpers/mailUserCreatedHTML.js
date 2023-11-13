@@ -1,5 +1,3 @@
-const WELCOME = process.env
-
 const welcome = () => {
     return`
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -87,7 +85,7 @@ const welcome = () => {
                 <h1>Te damos la bienvenida a LadyFitLovers 💜</h1>
             </div>
             <div>
-                <img src="${WELCOME}" alt="Imagen de bienvenida a LadyFitLovers"/>
+                <img src="https://imgtr.ee/images/2023/11/13/3bcc4da99b49434ee57c64f575cff4fb.jpeg" alt="Imagen de bienvenida a LadyFitLovers"/>
             </div>
         </div>
     </body>
