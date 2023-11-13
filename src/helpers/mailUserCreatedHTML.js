@@ -1,4 +1,4 @@
-const Bienvenidos_a_LadyFitLovers = require('../utils/Bienvenidos_a_LadyFitLovers.jpg')
+const WELCOME = process.env
 
 const welcome = () => {
     return`
@@ -87,7 +87,7 @@ const welcome = () => {
                 <h1>Te damos la bienvenida a LadyFitLovers 💜</h1>
             </div>
             <div>
-                <img src="${Bienvenidos_a_LadyFitLovers}" alt="Imagen de bienvenida a LadyFitLovers"/>
+                <img src="${WELCOME}" alt="Imagen de bienvenida a LadyFitLovers"/>
             </div>
         </div>
     </body>
