@@ -1,3 +1,5 @@
+const Bienvenidos_a_LadyFitLovers = require('../utils/Bienvenidos_a_LadyFitLovers.jpg')
+
 const welcome = () => {
     return`
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -85,7 +87,7 @@ const welcome = () => {
                 <h1>Te damos la bienvenida a LadyFitLovers 💜</h1>
             </div>
             <div>
-                <img src="https://imgtr.ee/images/2023/10/17/5429d15f477db5b587c6f58bda3b6866.jpeg" alt="Imagen de bienvenida a LadyFitLovers"/>
+                <img src="${Bienvenidos_a_LadyFitLovers}" alt="Imagen de bienvenida a LadyFitLovers"/>
             </div>
         </div>
     </body>
